@@ -147,18 +147,18 @@
 <!-- ================= REGISTER ================= -->
 <div id="screen-register" class="wrap">
   <div class="card">
-    <h1>Online Assessment</h1>
+    <h1>Gene Manipulation and Genomics Lab - Assessement - 1</h1>
     <p class="muted" id="meta"></p>
     <div id="cfgWarn" class="banner hidden">Demo mode: <code>APPS_SCRIPT_URL</code> isn't set in index.html, so results will not be saved or emailed.</div>
 
     <h2 style="margin-top:18px">Instructions</h2>
-    <ul class="rules">
+    <ul class="Instructions">
       <li>The test has <b id="nSec"></b> sections of multiple-choice questions. Each question has one correct answer.</li>
       <li>Stay on this page. Do not switch tabs or apps, minimise the browser, or leave full-screen (on devices that support it).</li>
       <li>Every such attempt is recorded as a violation. After <b id="maxV"></b> violations the test is <b>submitted automatically</b>.</li>
       <li>Copying, right-click, printing and developer shortcuts are disabled.</li>
       <li>Your result will be emailed to you about <b id="delay"></b> hours after you submit.</li>
-      <li>You can attempt the test only once.</li>
+      <li>Each email address can be used for <b>only one attempt</b>. Your email is locked to your attempt as soon as you press Start. If the page closes by accident, reopen it on the same device and browser to continue.</li>
       <li><b>On a phone:</b> turn on Do Not Disturb so calls and notifications don't interrupt you, and open this page in Chrome or Safari (not inside WhatsApp, Instagram or other in-app browsers). Switching apps counts as a violation.</li>
     </ul>
 
@@ -248,36 +248,36 @@
    CONFIGURATION: edit this block
    ===================================================================== */
 const CONFIG = {
-  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbwSlE4CK012a_NfHBRmWaHAwz4f4rvPmRB_4BAdcHV2HXHAK9Fd5Qv9fpZ4AMGRY-bH5Q/exec",          // paste your deployed Apps Script Web App URL here
-  TEST_TITLE: "Gene Manipulation and Genomics Lab",
+  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbyJuQXbp4U7MK5ZqySiV80mH9i2rnlv1XqB47lPH9f4KzbGCmqQ2wWxzky1sYTYOeD9/exec",          // paste your deployed Apps Script Web App URL here
+  TEST_TITLE: "Gene Manipulation and Genomics Lab - Assessement - 1",
   DURATION_MIN: 15,             // test duration in minutes
   MAX_VIOLATIONS: 3,            // auto-submit after this many violations
-  RESULT_DELAY_HOURS: 3         // shown to students; the actual delay is set in Code.gs
+  RESULT_DELAY_HOURS: 1         // shown to students; the actual delay is set in Code.gs
 };
 
 /* Questions: NO answer key here. Answers live in Code.gs so students can't read them.
    Each question id (e.g. "A1") must match the key in Code.gs. */
 const SECTIONS = [
-  { id:"A", name:"Elution of DNA/RE digest from agarose Gel", questions:[
-    { id:"A1", q:"What is the primary purpose of DNA elution from an agarose gel?", o:["To degrade the DNA","To isolate a specific DNA fragment from the gel","To amplify DNA","To stain the DNA"] },
-    { id:"A2", q:"What is the first step before eluting a DNA fragment from an agarose gel?", o:["PCR amplification","DNA sequencing","Visualization and excision of the desired DNA band","DNA precipitation"] },
-    { id:"A3", q:"Why is low-melting-point agarose sometimes preferred for DNA elution?", o:["It increases DNA degradation","It melts at a relatively low temperature, facilitating DNA recovery","It stains DNA more efficiently","It prevents DNA migration"] },
-    { id:"A4", q:"Which instrument is commonly used to cut the desired DNA band from an agarose gel?", o:["Centrifuge","Micropipette","Clean scalpel or razor blade","Spectrophotometer"] },
-    { id:"A5", q:"Which method uses a membrane to bind DNA and subsequently release it into a small volume of buffer?", o:["Silica-column purification","Dialysis","PCR","Electrophoresis"] },
+  { id:"A", name:"Experiment 2 – Elution of DNA/RE digest from agarose gel", questions:[
+    { id:"A1", q:"What is the main purpose of DNA elution from an agarose gel?", o:["To amplify DNA","To extract and purify DNA fragments from the gel","To digest DNA with restriction enzymes","To synthesize RNA"] },
+    { id:"A2", q:"Which compound in the gel solubilization solution helps solubilize the agarose gel?", o:["Ethanol","Isopropanol","Guanidine thiocyanate","Sodium chloride"] },
+    { id:"A3", q:"In the silica-column method, DNA binds to silica in the presence of:", o:["Low salt concentration","High salt concentration","Pure water","Low temperature"] },
+    { id:"A4", q:"What is the purpose of washing the silica column with wash buffer?", o:["To digest DNA","To remove salts and impurities","To amplify DNA","To dissolve DNA"] },
+    { id:"A5", q:"Which alcohol is added at 100 µL per 100 mg of agarose gel slice according to the manual?", o:["Ethanol","Methanol","Isopropanol","Butanol"] }
   ]},
-  { id:"B", name:"Preparation of rDNA- Ligation", questions:[
-    { id:"B1", q:"Find the next number: 2, 6, 12, 20, 30, ?", o:["40","42","44","46"] },
-    { id:"B2", q:"If CAT is coded as 24 (C=3, A=1, T=20 added), what is DOG?", o:["24","26","28","30"] },
-    { id:"B3", q:"A is the brother of B. B is the sister of C. C is the father of D. How is A related to D?", o:["Father","Uncle","Brother","Grandfather"] },
-    { id:"B4", q:"Which one is the odd one out?", o:["Apple","Banana","Carrot","Mango"] },
-    { id:"B5", q:"You face North and turn right 90°, then right 90° again. Which direction are you facing?", o:["East","West","South","North"] }
+  { id:"B", name:"Experiment 4 – Ligation of plasmid vector with λ-DNA insert", questions:[
+    { id:"B1", q:"What is the main purpose of DNA ligation?", o:["To separate DNA fragments","To join DNA fragments together","To degrade DNA","To amplify RNA"] },
+    { id:"B2", q:"Which enzyme is used for ligating the pUC18 vector and λ-DNA insert?", o:["Taq DNA polymerase","EcoRI","T4 DNA ligase","Reverse transcriptase"] },
+    { id:"B3", q:"DNA ligase forms a phosphodiester bond between:", o:["Two nitrogenous bases","Adjacent 3′-OH and 5′-phosphate groups","Two 5′-phosphate groups","Two 3′-OH groups"] },
+    { id:"B4", q:"T4 DNA ligase can join:", o:["Only sticky ends","Only blunt ends","Both cohesive and blunt ends","Only RNA molecules"] },
+    { id:"B5", q:"What is the energy source required by T4 DNA ligase according to the manual?", o:["GTP","ATP","NADH","FAD"] }
   ]},
-  { id:"C", name:"Transformation of competent cells", questions:[
-    { id:"C1", q:"Choose the synonym of 'ABUNDANT'.", o:["Scarce","Plentiful","Rare","Limited"] },
-    { id:"C2", q:"Choose the antonym of 'ANCIENT'.", o:["Old","Modern","Historic","Aged"] },
-    { id:"C3", q:"Fill in the blank: She ____ to school every day.", o:["go","goes","going","gone"] },
-    { id:"C4", q:"Choose the correctly spelt word.", o:["Accomodate","Accommodate","Acommodate","Acomodate"] },
-    { id:"C5", q:"What does the idiom 'a piece of cake' mean?", o:["An easy task","A dessert","A difficult task","A celebration"] }
+  { id:"C", name:"Experiment 5 – Transformation of competent DH5α cells", questions:[
+    { id:"C1", q:"What is bacterial transformation?", o:["Conversion of RNA into DNA","Direct uptake of DNA by a recipient bacterial cell","Replication of proteins","Digestion of plasmid DNA"] },
+    { id:"C2", q:"Which bacterial strain is used for transformation in Experiment 5?", o:["E. coli BL21","E. coli DH5α","Bacillus subtilis","E. coli K12"] },
+    { id:"C3", q:"Which reagent is used to prepare competent cells in the described method?", o:["EDTA","CaCl₂","Tris-HCl","SDS"] },
+    { id:"C4", q:"What is the purpose of CaCl₂ treatment during competent-cell preparation?", o:["To degrade plasmid DNA","To facilitate DNA uptake by bacterial cells","To inhibit bacterial growth","To digest proteins"] },
+    { id:"C5", q:"During transformation, competent cells are initially incubated with DNA on:", o:["Ice","Boiling water","37°C water bath","95°C heating block"] }
   ]}
 ];
 /* ===================================================================== */
@@ -333,7 +333,8 @@ setInterval(retryPending, 30000);
 
 const prev = load();
 if(prev && prev.submitted){
-  showDone(prev);
+  // Already submitted on this device. Don't lock the device: another student may use it.
+  // One attempt per email is enforced by the server when the next student presses Start.
 }else if(prev && !prev.submitted){
   // page was reloaded / reopened mid-test: count as violation and resume
   state = prev;
@@ -342,6 +343,31 @@ if(prev && prev.submitted){
   beginTestUI(true);
   // phones often kill background tabs, so a reload may push the count over the limit
   if(state.violations >= CONFIG.MAX_VIOLATIONS) finalSubmit("Auto-submitted: too many violations");
+}
+
+/* ---------- one attempt per email ---------- */
+const EMAIL_RE = /^[A-Za-z0-9_][^@\s]*@[^@\s]+\.[^@\s]+$/;
+const ALREADY_MSG = "This email address has already been used for this test. Each email can attempt the test only once.";
+
+// Asks the server to claim this email. The server refuses if the email (or a Gmail dot/+tag variant of it) was used before.
+async function claimAttempt(student){
+  if(!CONFIG.APPS_SCRIPT_URL) return { ok:true, token:"demo" };   // demo mode: nothing is checked or saved
+  const ctl = new AbortController();
+  const timer = setTimeout(() => ctl.abort(), 30000);
+  try{
+    const res = await fetch(CONFIG.APPS_SCRIPT_URL, {
+      method:"POST", signal: ctl.signal,
+      headers:{ "Content-Type":"text/plain;charset=utf-8" },     // avoids a CORS preflight, which Apps Script can't answer
+      body: JSON.stringify({ action:"start", ...student })
+    });
+    const j = await res.json();
+    if(j.ok) return { ok:true, token:j.token };
+    if(j.error === "already")   return { ok:false, message: ALREADY_MSG };
+    if(j.error === "bad_email") return { ok:false, message:"Please enter a valid email address." };
+    return { ok:false, message:"Could not start the test. Please try again, or contact your invigilator." };
+  }catch(e){
+    return { ok:false, message:"Could not verify your email. Check your internet connection and try again." };
+  }finally{ clearTimeout(timer); }
 }
 
 /* ---------- registration ---------- */
@@ -353,11 +379,20 @@ $("regForm").addEventListener("submit", async e => {
     email: $("email").value.trim().toLowerCase(),
     roll: $("roll").value.trim()
   };
-  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(student.email)){ $("regErr").textContent = "Please enter a valid email address."; return; }
-  if(load()?.submitted){ $("regErr").textContent = "You have already attempted this test."; return; }
+  if(!EMAIL_RE.test(student.email)){ $("regErr").textContent = "Please enter a valid email address."; return; }
+  const local = load();
+  if(!CONFIG.APPS_SCRIPT_URL && local?.submitted && local.student?.email === student.email){
+    $("regErr").textContent = ALREADY_MSG; return;      // demo mode only; with a backend the server decides
+  }
+
+  const btn = $("regForm").querySelector("button[type=submit]");
+  btn.disabled = true; btn.textContent = "Checking your email…";
+  const claim = await claimAttempt(student);
+  btn.disabled = false; btn.textContent = "Start Test";
+  if(!claim.ok){ $("regErr").textContent = claim.message; return; }
 
   await goFullscreen();
-  state = { student, startedAt: Date.now(), answers:{}, marked:{}, violations:0, sec:0, idx:0, submitted:false };
+  state = { student, token: claim.token, startedAt: Date.now(), answers:{}, marked:{}, violations:0, sec:0, idx:0, submitted:false };
   save();
   beginTestUI(false);
 });
@@ -489,6 +524,7 @@ async function finalSubmit(reason){
 
   const payload = {
     name: state.student.name, email: state.student.email, roll: state.student.roll,
+    token: state.token,
     answers: state.answers,
     violations: state.violations,
     reason,
@@ -509,12 +545,16 @@ async function send(payload){
   if(!CONFIG.APPS_SCRIPT_URL) { console.warn("APPS_SCRIPT_URL not set; result not sent."); return true; }
   try{
     // text/plain avoids a CORS preflight, which Apps Script can't answer.
-    await fetch(CONFIG.APPS_SCRIPT_URL, {
-      method:"POST", mode:"no-cors",
+    const res = await fetch(CONFIG.APPS_SCRIPT_URL, {
+      method:"POST",
       headers:{ "Content-Type":"text/plain;charset=utf-8" },
       body: JSON.stringify(payload)
     });
-    return true;
+    const j = await res.json();
+    if(j.ok) return true;
+    // errors that retrying can never fix: stop re-sending
+    if(["bad_token","not_started","bad_email"].includes(j.error)){ console.error("Submission rejected:", j.error); return true; }
+    return false;   // e.g. server busy: keep it queued and retry
   }catch(e){ return false; }
 }
 function queuePending(p){ try{ const a=JSON.parse(localStorage.getItem(LS_PENDING)||"[]"); a.push(p); localStorage.setItem(LS_PENDING, JSON.stringify(a)); }catch(e){} }
